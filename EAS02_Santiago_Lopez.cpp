@@ -15,6 +15,7 @@ public:
 
 class Cuadrado: public Figura
 {
+    public:
     Cuadrado(int b): Figura(b, 0){
         this->setPerimetro(b*4);
     }
@@ -22,16 +23,17 @@ class Cuadrado: public Figura
 
 class Rectangulo: public Figura
 {
+    public:
     Rectangulo(int b, int h): Figura(b, h){
-        this->setPerimetro(b*h);
+        this->setPerimetro(b+b+h+h);
     }
 };
 
 class Circulo: public Figura
 {
+    public:
     Circulo(int b): Figura(b, 0){
-        int r = (b/2)*(b/2);
-        float per = 3.1416*r;
+        float per = b*3.1416;
         this->setPerimetro(per);
     }
 };
@@ -61,7 +63,7 @@ class Circulo: public Figura
 
 int main () {
 
-    Cuadrado s(5, 0);
+    Cuadrado s(5);
     cout << s.getPerimetro() << endl; // 20
     Rectangulo r(5,10);
     cout << r.getPerimetro() << endl; // 30
@@ -85,7 +87,7 @@ Figura::Figura(int b, int h)
 
 void Figura::setPerimetro(float a)
 {
-    this->p = p;
+    this->p = a;
 }
 
 float Figura::getPerimetro()
